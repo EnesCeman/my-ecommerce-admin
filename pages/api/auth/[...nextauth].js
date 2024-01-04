@@ -16,6 +16,9 @@ export const authOptions = {
       clientSecret: process.env.GOOGLE_SECRET,
     }),
   ],
+  session: {
+    maxAge: 30 * 24 * 60 * 60, // 30 days in seconds
+  },
   adapter: MongoDBAdapter(clientPromise),
   callbacks: {
     session: async ({ session, token, user }) => {
